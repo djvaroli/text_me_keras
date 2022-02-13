@@ -5,7 +5,7 @@ description = "A TenosorFlow callback that texts you back (to let you know how t
 authors = ["Daniel Varoli <daniel.varoli@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.11"
+python = ">=3.7,<3.10"
 tensorflow = "^2.8.0"
 twilio = "^7.6.0"
 
