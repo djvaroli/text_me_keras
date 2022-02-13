@@ -21,7 +21,7 @@ Or
 Note: If you don't have Twilio credentials, you can create a free account at https://www.twilio.com/. Then create a new project and get a free phone number as well as the necessary credentials.
 
 Python
-```
+```python
 import os
 
 os.environ["TWILIO_ACCOUNT_SID"] = <your_account_sid>
@@ -35,7 +35,7 @@ export TWILIO_AUTH_TOKEN=<your_auth_token>
 ```
 
 ### Try it Out
-```
+```python
 import os
 
 import numpy as np
