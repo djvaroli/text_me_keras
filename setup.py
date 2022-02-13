@@ -17,5 +17,5 @@ setup(
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
     ],
-    install_requires=["tensorflow>=2.8.0", "twilio==7.6.0"],
+    install_requires=["tensorflow>=2.7.0", "twilio==7.6.0"],
 )
