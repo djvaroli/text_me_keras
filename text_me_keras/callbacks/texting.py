@@ -15,6 +15,7 @@ class TextMeCallback(Callback):
         send_to: str,
         send_from: str,
         frequency: int,
+        run_id: str = None,
         round_to: int = 4
     ):
         """TensorFlow callback that enables sending SMS messages during model training.
@@ -23,16 +24,18 @@ class TextMeCallback(Callback):
             send_to (str): Number to text model metrics to.
             send_from (str): Number from which the message is sent. Must be a valid Twilio number attached to the provided SID.
             frequency (int): Number of epochs between successive text mesages.
+            run_id (str): An identifier for the run. If set will be added at the top of each text message.
             round_to (int, optional): Number of digits to round metrics to. Defaults to 4.
         """
         super(TextMeCallback, self).__init__()
         
-        # better to interrupt here than at model training time
+        # better to raise exception here than at model training time
         TextMessage._check_if_credentials_set(action="raise")
         
         self.send_to = send_to
         self.send_from = send_from
         self.frequency = frequency
+        self.run_id = run_id
         self.round_to = round_to
         self.text_message = TextMessage()
     
@@ -46,6 +49,9 @@ class TextMeCallback(Callback):
         """
         if epoch % self.frequency != 0:
             return
+        
+        if self.run_id:
+            self.text_message.add_line(f"Run ID - {self.run_id}.")
         
         self.text_message.add_line(f"Epoch - {epoch}.")
         if logs is not None:
