@@ -1,5 +1,6 @@
 """Functions that assist in building and sending text messages.
 """
+from email.mime import audio
 from inspect import Attribute
 import os
 from logging import getLogger, WARNING
@@ -24,18 +25,23 @@ class TextMessage:
     def __length__(self) -> int:
         return len(self.message)
     
-    def _check_if_credentials_set(self, action="warning"):
-        account_sid = os.environ.get("TWILIO_ACCOUNT_SID")
-        auth_token = os.environ.get("TWILIO_AUTH_TOKEN")
+    @classmethod
+    def _check_if_credentials_set(cls, action="warning") -> bool:
         warning_or_error_message = "To send messages please set TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN."
-        
-        if account_sid is None or auth_token is None:
+        if cls._are_credentials_set() is False:
             if action == "warning":
                 logger.warning(warning_or_error_message)
-            elif action == "error":
+                return False
+            elif action == "raise":
                 raise Exception(warning_or_error_message)
             else:
                 raise Exception(f"Invalid action {action}.")
+    
+    @staticmethod
+    def _are_credentials_set() -> bool:
+        account_sid = os.environ.get("TWILIO_ACCOUNT_SID")
+        auth_token = os.environ.get("TWILIO_AUTH_TOKEN")
+        return account_sid is not None and auth_token is not None
     
     @property
     def message(self) -> str:
@@ -53,7 +59,8 @@ class TextMessage:
     def reset_message(self) -> "TextMessage":
         """Resets the contents of the text message.
         """
-        self.message = ""
+        self.message_lines = []
+        return self
         
     def send(self, to: str, from_: str):
         """Sends the text message to the specified number.
@@ -62,7 +69,7 @@ class TextMessage:
             to (str): Number to send message to.
             from_ (str): Number the message is sent from. Should be your active Twilio number.
         """
-        self._check_if_credentials_set(action="error")
+        self._check_if_credentials_set(action="raise")
         account_sid = os.environ.get("TWILIO_ACCOUNT_SID")
         auth_token = os.environ.get("TWILIO_AUTH_TOKEN")
         client = Client(account_sid, auth_token)
