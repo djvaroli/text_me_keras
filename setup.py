@@ -1,12 +1,11 @@
 from setuptools import find_namespace_packages, setup
 
-from text_me_keras import __version__
 
 dev_pacakges = ["black==22.1.0", "isort==5.10.1", "pytest==5.2"]
 
 setup(
     name="text_me_keras",
-    version=__version__,
+    version="0.1.0",
     author="Daniel John Varoli",
     author_email="daniel.varoli@gmail.com",
     description="A TenosorFlow callback that texts you back (to let you know how training is going).",
