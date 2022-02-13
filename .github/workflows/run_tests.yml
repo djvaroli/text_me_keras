@@ -28,15 +28,15 @@ jobs:
         with:
           path: .venv
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
-          
+
       - name: Install Dependencies
         run: poetry install
         if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Format Code with Black and iSort
         run: |
-          black $(git ls-files *.py) --check
-          isort $(git ls-files *.py)
+          poetry run black $(git ls-files *.py) --check
+          poetry run isort $(git ls-files *.py)
       
       - name: Run Tests
         run: poetry run pytest .
