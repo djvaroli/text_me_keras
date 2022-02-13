@@ -11,7 +11,7 @@ setup(
     description="A TenosorFlow callback that texts you back (to let you know how training is going).",
     url="https://github.com/djvaroli/text_me_keras",
     packages=find_namespace_packages(".", include=["text_me_keras.*"]),
-    package_dir={".", "text_me_keras"},
+    package_dir={".": "text_me_keras"},
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
