@@ -1,6 +1,8 @@
 from setuptools import find_namespace_packages, setup
 from pathlib import Path
 
+from text_me_keras import __version__
+
 
 root_directory = Path(__file__).parent
 long_description = (root_directory / "README.md").read_text()
@@ -10,7 +12,7 @@ dev_pacakges = ["black==22.1.0", "isort==5.10.1", "pytest==5.2"]
 
 setup(
     name="text_me_keras",
-    version="0.1.0",
+    version=__version__,
     author="Daniel John Varoli",
     author_email="daniel.varoli@gmail.com",
     description="A TenosorFlow callback that texts you back (to let you know how training is going).",
