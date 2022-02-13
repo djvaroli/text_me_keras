@@ -2,14 +2,23 @@
 
 A TensorFlow callback that texts back... to let you know how training is going.
 
+Have you ever found yourself at a party, all your friends are getting hundreds of texts... but not you? Well, now you can be popular. Just add this callback when training your models and it will send you a summary of your training procedure! Say goodbye to those lonely, message-free lock screens with the TextMeKeras callbacks!
+
 
 ## Usage.
+<hr />
 
 ### Clone and Install.
    
 `git clone https://github.com/djvaroli/text_me_keras.git && cd text_me_keras/ && pip install -e .`
 
+Or
+
+`pip install git+https://github.com/djvaroli/text_me_keras.git`
+
 ### Export Twilio Credentials
+
+Note: If you don't have Twilio credentials, you can create a free account at https://www.twilio.com/. Then create a new project and get a free phone number as well as the necessary credentials.
 
 Python
 ```
