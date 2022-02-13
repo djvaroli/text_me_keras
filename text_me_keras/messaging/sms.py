@@ -1,8 +1,6 @@
 """Functions that assist in building and sending text messages.
 """
 import os
-from email.mime import audio
-from inspect import Attribute
 from logging import WARNING, getLogger
 
 from twilio.rest import Client

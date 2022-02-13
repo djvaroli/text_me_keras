@@ -1,5 +1,5 @@
 import numpy as np
-from tensorflow.python.keras.callbacks import Callback
+from tensorflow.keras.callbacks import Callback
 
 from ..messaging.sms import TextMessage
 
