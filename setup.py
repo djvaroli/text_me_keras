@@ -1,12 +1,8 @@
 from setuptools import find_namespace_packages, setup
+
 from text_me_keras import __version__
 
-
-dev_pacakges = [
-    "black==22.1.0",
-    "isort==5.10.1",
-    "pytest==5.2"
-]
+dev_pacakges = ["black==22.1.0", "isort==5.10.1", "pytest==5.2"]
 
 setup(
     name="text_me_keras",
@@ -21,8 +17,5 @@ setup(
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
     ],
-    install_requires=[
-        "tensorflow>=2.8.0",
-        "twilio==7.6.0"
-    ],
+    install_requires=["tensorflow>=2.8.0", "twilio==7.6.0"],
 )

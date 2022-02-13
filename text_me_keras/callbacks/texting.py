@@ -38,7 +38,7 @@ class TextMeCallback(Callback):
         self.text_message = TextMessage()
 
     def on_epoch_end(self, epoch, logs=None):
-        """Checks if enough epochs have elapsed and if so, 
+        """Checks if enough epochs have elapsed and if so,
         adds all metrics present in logs to the body of the text message and sends message.
 
         Args:

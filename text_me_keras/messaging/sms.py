@@ -59,8 +59,7 @@ class TextMessage:
         return self
 
     def reset_message(self) -> "TextMessage":
-        """Resets the contents of the text message.
-        """
+        """Resets the contents of the text message."""
         self.message_lines = []
         return self
 
