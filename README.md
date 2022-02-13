@@ -4,7 +4,7 @@ A TensorFlow callback that texts back... to let you know how training is going.
 
 Have you ever found yourself at a party, all your friends are getting hundreds of texts... but not you? Well, now you can be popular. Just add this callback when training your models and it will send you a summary of your training procedure! Say goodbye to those lonely, message-free lock screens with the TextMeKeras callbacks!
 
-[![code formatting](https://github.com/djvaroli/text_me_keras/actions/workflows/code_formatting.yml/badge.svg)](https://github.com/djvaroli/text_me_keras/actions/workflows/code_formatting.yml)
+[![run tests and code formatting](https://github.com/djvaroli/text_me_keras/actions/workflows/run_tests.yml/badge.svg)](https://github.com/djvaroli/text_me_keras/actions/workflows/run_tests.yml)
 
 ## Usage.
 <hr />
